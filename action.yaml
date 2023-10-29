@@ -1,0 +1,19 @@
+---
+name: release-bumper
+description: bumps a release
+branding:
+  icon: package
+  color: green
+inputs:
+  release:
+    description: release to bump
+  default-release:
+    description: release if no release input
+  level:
+    description: patch | minor | major
+outputs:
+  release:
+    description: 'bumped release'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

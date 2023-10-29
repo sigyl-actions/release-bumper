@@ -1,0 +1,45 @@
+---
+name: Test
+on: [push]
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: ./
+        id: patch
+        with:
+          release: v1.2.0
+          level: patch
+      - uses: ./
+        id: minor
+        with:
+          release: v1.3.1
+          level: minor
+      - uses: ./
+        id: major
+        with:
+          release: v1.3.1
+          level: major
+      - uses: ./
+        id: major
+        with:
+          default-release: v1.3.1
+          level: default
+      - name: results
+        run: |
+          if [[ "${{ steps.patch.outputs.release }}" -ne "v1.2.1" ]]; then
+            echo ::error::patch
+          fi
+          if [[ "${{ steps.minor.outputs.release }}" -ne "v1.4.0" ]]; then
+            echo ::error::minor
+          fi
+          if [[ "${{ steps.major.outputs.release }}" -ne "v2.0.0" ]]; then
+            echo ::error::major
+          fi
+          if [[ "${{ steps.default.outputs.release }}" -ne "v1.2.1" ]]; then
+            echo ::error::default
+          fi

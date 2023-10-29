@@ -44,7 +44,7 @@ jobs:
             echo ::error::major ${{ steps.major.outputs.release }}
             exit 1
           fi
-          if test "${{ steps.default.outputs.release }}" != "v1.2.1"; then
+          if test "${{ steps.default.outputs.release }}" != "v1.3.1"; then
             echo ::error::default ${{ steps.default.outputs.release }}
             exit 1
           fi

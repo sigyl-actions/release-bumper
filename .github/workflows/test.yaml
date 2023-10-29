@@ -31,6 +31,7 @@ jobs:
           level: default
       - name: results
         run: |
+          echo ${{ steps.patch.outputs.release }}
           if [[ "${{ steps.patch.outputs.release }}" -ne "v1.2.1" ]]; then
             echo ::error::patch
           fi

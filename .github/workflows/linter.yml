@@ -54,4 +54,5 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_JAVASCRIPT_ES: true
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+

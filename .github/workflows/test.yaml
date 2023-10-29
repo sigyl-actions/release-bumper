@@ -34,13 +34,17 @@ jobs:
           echo ${{ steps.patch.outputs.release }}
           if test "${{ steps.patch.outputs.release }}" != "v1.2.1"; then
             echo ::error::patch ${{ steps.patch.outputs.release }}
+            exit 1
           fi
           if test "${{ steps.minor.outputs.release }}" != "v1.4.0"; then
             echo ::error::minor ${{ steps.minor.outputs.release }}
+            exit 1
           fi
           if test "${{ steps.major.outputs.release }}" != "v2.0.0"; then
             echo ::error::major ${{ steps.major.outputs.release }}
+            exit 1
           fi
-          if test "${{ steps.default.outputs.release }}" != "v1.3.1"; then
+          if test "${{ steps.default.outputs.release }}" != "v1.2.1"; then
             echo ::error::default ${{ steps.default.outputs.release }}
+            exit 1
           fi

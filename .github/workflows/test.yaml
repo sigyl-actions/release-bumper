@@ -25,7 +25,7 @@ jobs:
           release: v1.3.1
           level: major
       - uses: ./
-        id: major
+        id: default
         with:
           default-release: v1.3.1
           level: default
@@ -41,5 +41,5 @@ jobs:
             echo ::error::major
           fi
           if [[ "${{ steps.default.outputs.release }}" -ne "v1.2.1" ]]; then
-            echo ::error::default
+            echo ::error::defaul
           fi

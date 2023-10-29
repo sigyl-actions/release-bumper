@@ -24,7 +24,7 @@ jobs:
           npm i -g @vercel/ncc
           npm run package
       - id: check-for-changes
-        uses: sigyl-actions/check-for-changes@v1
+        uses: sigyl-actions/check-for-changes@v1.0.0
       - name: commit and push
         run: |
           if ${{ steps.check-for-changes.outputs.changes }} = true; then

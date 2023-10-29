@@ -32,15 +32,15 @@ jobs:
       - name: results
         run: |
           echo ${{ steps.patch.outputs.release }}
-          if [[ "${{ steps.patch.outputs.release }}" -ne "v1.2.1" ]]; then
+          if test "${{ steps.patch.outputs.release }}" != "v1.2.1"; then
             echo ::error::patch
           fi
-          if [[ "${{ steps.minor.outputs.release }}" -ne "v1.4.0" ]]; then
+          if test "${{ steps.minor.outputs.release }}" != "v1.4.0"; then
             echo ::error::minor
           fi
-          if [[ "${{ steps.major.outputs.release }}" -ne "v2.0.0" ]]; then
+          if test "${{ steps.major.outputs.release }}" != "v2.0.0"; then
             echo ::error::major
           fi
-          if [[ "${{ steps.default.outputs.release }}" -ne "v1.2.1" ]]; then
-            echo ::error::defaul
+          if test "${{ steps.default.outputs.release }}" != "v1.2.1"; then
+            echo ::error::default
           fi

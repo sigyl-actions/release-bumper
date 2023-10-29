@@ -28,7 +28,7 @@ jobs:
         uses: sigyl-actions/check-for-changes@v1.0.0
       - name: commit and push
         run: |
-          if [ ${{ steps.check-for-changes.outputs.changes }} ] = true; then
+          if [ ${{ steps.check-for-changes.outputs.changes }} = true ]; then
             git config user.name "${{ github.actor }}"
             git config user.email "${{ github.event.pusher.email }}"
             git add -A

@@ -2823,7 +2823,7 @@ const core = __nccwpck_require__(186);
 const addRelease = (
   component,
   amount,
-) => `${component.replace(/\D/g,'')}${Number(component.replace(/\D/g,'') || 0) + amount}`
+) => `${component.replace(/\D/g,'')}${Number(component.replace(/\d/g,'') || 0) + amount}`
 
 const versionUp = (current, level, amount) => {
   // from https://raw.githubusercontent.com/okunishinishi/node-versionup/master/lib/_next_version.js

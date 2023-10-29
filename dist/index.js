@@ -2838,7 +2838,6 @@ const versionUp = (current, level, amount) => {
       return [addRelease(major,amount), 0, 0].join('.')
     case 'minor':
       return [major, minor + amount, 0].join('.')
-    case 'micro':
     case 'patch':
     default:
       return [major, minor, patch + amount].join('.')

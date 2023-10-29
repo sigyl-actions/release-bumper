@@ -2826,8 +2826,7 @@ const addRelease = (
 ) => `${component.replace(/\d/g,'')}${Number(component.replace(/\D/g,'') || 0) + amount}`
 
 const versionUp = (current, level, amount) => {
-  const [value] = String(current).split('-')
-  const components = value.split(/\./)
+  const components = String(current).split('-')[0].split(/\./)
   const major = components[0] || 0;
   const minor = Number(components[1]) || 0;
   const patch = Number(components[2]) || 0;
